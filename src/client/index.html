@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="ngD3Example">
+<head>
+    <title>Angular D3 Example</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+
+    <link rel="stylesheet" href="/src/client/styles/charts.css">
+    <link rel="stylesheet" href="/src/client/styles/tooltip.css">
+</head>
+
+<body>
+
+    <div ng-include="'app/layout/dashboard.html'"></div>
+
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/lodash/lodash.js"></script>
+    <script src="/bower_components/d3/d3.js"></script>
+
+    <script src="/src/client/app/app.module.js"></script>
+    <script src="/src/client/app/core/core.module.js"></script>
+    <script src="/src/client/app/core/viewport-utils.js"></script>
+    <script src="/src/client/app/core/delayed-task-factory.js"></script>
+    <script src="/src/client/app/layout/layout.module.js"></script>
+    <script src="/src/client/app/layout/dashboard.controller.js"></script>
+    <script src="/src/client/app/widgets/widgets.module.js"></script>
+    <script src="/src/client/app/widgets/charts/chart-utils.js"></script>
+    <script src="/src/client/app/widgets/charts/tooltip.factory.js"></script>
+    <script src="/src/client/app/widgets/charts/bar-line-chart.factory.js"></script>
+    <script src="/src/client/app/widgets/bar-line-chart.directive.js"></script>
+</body>
+</html>

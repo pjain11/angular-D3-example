@@ -1,0 +1,19 @@
+{
+  "name": "Angular D3 Example",
+  "version": "0.0.1",
+  "description": "Angular D3 Example",
+  "authors": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "bower_components"
+  ],
+  "devDependencies": {
+  },
+  "dependencies": {
+    "jquery": "~2.1.0",
+    "angular": "~1.5.0",
+    "lodash": "~3.10.1",
+    "d3": "~3.5.5"
+  }
+}
