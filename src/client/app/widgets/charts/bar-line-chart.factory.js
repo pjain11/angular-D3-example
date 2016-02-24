@@ -6,7 +6,7 @@
         .factory('barLineChartFactory', barLineChartFactory);
 
     /* @ngInject */
-    function barLineChartFactory(chartUtils, tooltipFactory) {
+    function barLineChartFactory(chartUtils, tooltipFactory, $rootScope) {
         var chartFactory = {
             create: function () {
                 return new LineBarChart();
@@ -21,7 +21,7 @@
                 lineSeriesDotsCls = 'line-dot',
                 lineDotSelectedCls = 'line-dot-selected',
                 marginLeft = 70, // space for drawing Y left axis
-                marginRight = 110, // Space for drawing Y right axis
+                marginRight = 70, // Space for drawing Y right axis
                 marginTop = 20,
                 marginBottom = 50; // space for drawing x-axis w labels in bottom
 
@@ -35,6 +35,9 @@
 
             function exports(selection) {
                 selection.each(function(data) {
+                    marginLeft = $rootScope.viewportXs ? 5 : 70;
+                    marginRight = $rootScope.viewportXs ? 5 : 70;
+
                     var containerEl = this,
                         chartPlotWidth = props.width - (marginLeft + marginRight),
                         chartPlotHeight = props.height - (marginTop + marginBottom);
@@ -63,7 +66,6 @@
 
                     xAxisGrp.selectAll('text')
                         .style('text-anchor', 'middle')
-                        .attr("dx", "-.8em")
                         .attr("dy", ".15em");
 
                     //~ ------- Drawing series -------------------------
@@ -85,18 +87,19 @@
                         return rawYScale(val || 0) || 0;
                     };
 
+                    var yAxisLeftOrient = $rootScope.viewportXs ? 'right' : 'left';
+
                     var yAxisLeft = d3.svg.axis()
                         .scale(rawYScale)
-                        .orient('left')
+                        .orient(yAxisLeftOrient)
                         .ticks(5)
-                        .innerTickSize(-(chartPlotWidth))
                         .outerTickSize(0)
-                        .tickPadding(10);
+                        .tickPadding(5);
+
+                    drawBarSeries(xScale, yScale, barWidth, data, chartGrp);
 
                     var yAxisLeftGrp = chartUtils.selectOrNew(chartGrp, 'g', 'y-left').classed('axis', true);
                     yAxisLeftGrp.call(yAxisLeft);
-
-                    drawBarSeries(xScale, yScale, barWidth, data, chartGrp);
 
 
                     // Y-Axis Right for Line Series ============================================
@@ -104,18 +107,19 @@
                         .range([chartPlotHeight, 0])
                         .domain([calculatedMinValueRightAxis, calculatedMaxValueRightAxis]);
 
+                    drawLineSeries(xScale, yScaleRight, data, chartGrp);
+
+                    var yAxisRightOrient = $rootScope.viewportXs ? 'left' : 'right';
+
                     var yAxisRight = d3.svg.axis()
                         .scale(yScaleRight)
-                        .orient('right')
+                        .orient(yAxisRightOrient)
                         .ticks(5);
-
 
                     var yAxisRightGrp = chartUtils.selectOrNew(chartGrp, 'g', 'y-right').classed('axis', true);
                     yAxisRightGrp
                         .attr('transform', 'translate(' + (chartPlotWidth) + ',' + 0 + ')')
                         .call(yAxisRight);
-
-                    drawLineSeries(xScale, yScaleRight, data, chartGrp);
 
                 });
             }
