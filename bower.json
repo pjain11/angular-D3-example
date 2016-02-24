@@ -1,7 +1,7 @@
 {
   "name": "Angular D3 Example",
   "version": "0.0.1",
-  "description": "Angular D3 Example",
+  "description": "Pattens of using D3 in AngularJS applications",
   "authors": [],
   "license": "MIT",
   "ignore": [

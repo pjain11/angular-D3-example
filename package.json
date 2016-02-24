@@ -1,0 +1,11 @@
+{
+  "name": "AngularD3Example",
+  "version": "0.0.1",
+  "description": "Pattens of using D3 in AngularJS applications",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-sass": "^2.2.0"
+  }
+}
