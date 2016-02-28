@@ -49,7 +49,7 @@
 
                 var parentDom = chartContainerEl[0],
                     el = d3.select(parentDom),
-                    chartHeight = 300, //parentDom.clientHeight,
+                    chartHeight = parentDom.clientHeight,
                     chartWidth = parentDom.clientWidth,
                     svg = chartUtils.selectOrNew(el, 'svg', 'bar-line-chart');
 
