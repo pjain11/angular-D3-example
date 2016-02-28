@@ -4,8 +4,22 @@
   "description": "Pattens of using D3 in AngularJS applications",
   "dependencies": {},
   "devDependencies": {
+    "del": "^2.2.0",
     "gulp": "^3.9.1",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-angular-templatecache": "^1.8.0",
+    "gulp-bytediff": "^1.0.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-csso": "^1.0.1",
+    "gulp-git": "^1.7.0",
+    "gulp-if": "^2.0.0",
     "gulp-load-plugins": "^1.2.0",
-    "gulp-sass": "^2.2.0"
+    "gulp-minify-html": "^1.0.6",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.2.0",
+    "gulp-uglify": "^1.5.3",
+    "run-sequence": "^1.1.5",
+    "yargs": "^4.2.0"
   }
 }
